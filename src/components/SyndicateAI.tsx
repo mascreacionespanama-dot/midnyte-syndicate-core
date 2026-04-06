@@ -7,204 +7,252 @@ interface Message {
 }
 
 const IDENTITY = {
-  name: "SYNDICATE AI",
-  greeting: "You found us. Most don't.\nWhat do you need?",
-  personality: "cold, minimal, exclusive, mysterious concierge",
+  name: "NYTE",
+  greeting: "After midnight, things get interesting.\nYou're here. That says enough.",
 };
 
 const quickReplies = [
   "Best sellers",
   "Style me",
   "Sizing",
-  "Who is Midnyte?",
+  "Who are you?",
 ];
 
 type ResponseEntry = { keywords: string[]; responses: string[] };
 
 const responseMap: ResponseEntry[] = [
   {
-    keywords: ["best seller", "trending", "popular", "top", "best"],
+    keywords: ["best seller", "trending", "popular", "top", "best", "hot"],
     responses: [
-      "Shadow Hoodie. Eclipse Bomber. Two pieces that define the Syndicate right now.",
-      "Void Tee is moving. Phantom Cargos close behind. Don't sleep.",
-      "Eclipse Bomber. 450 reasons to never take it off.",
+      "Shadow Hoodie and Eclipse Bomber. The two pieces members reach for first.",
+      "Void Tee is moving quietly. Phantom Cargos not far behind. Members only know.",
+      "Eclipse Bomber. $450. The kind of piece that doesn't need a second opinion.",
     ],
   },
   {
-    keywords: ["hoodie", "shadow"],
+    keywords: ["hoodie", "shadow hoodie"],
     responses: [
-      "Shadow Hoodie. $280. Oversized. Heavy cotton. You disappear into it—in the best way.",
-      "The Shadow Hoodie isn't just a hoodie. It's your new default. Oversized cut. Washed black. Feels like armor.",
+      "Shadow Hoodie. $280. Heavy cotton, oversized cut. You don't wear it — you vanish into it.",
+      "The Shadow Hoodie is the Syndicate default. There's a reason for that.",
     ],
   },
   {
     keywords: ["cargo", "pants", "phantom"],
     responses: [
-      "Phantom Cargos. $320. Built for the night. Functional pockets. Silent movement.",
-      "Phantom Cargos pair with everything we make. That's by design.",
+      "Phantom Cargos. $320. Functional. Silent. Built for after midnight.",
+      "Phantom Cargos pair with everything we make. Intentional, not coincidental.",
     ],
   },
   {
-    keywords: ["tee", "t-shirt", "void"],
+    keywords: ["tee", "t-shirt", "void tee"],
     responses: [
-      "Void Tee. $140. Minimal graphic. Heavy weight. Wear the mark, say nothing.",
-      "The Void Tee is the entry point. If you get it, you get us.",
+      "Void Tee. $140. The mark speaks for itself. You either get it or you don't.",
+      "Void Tee is how most members start. The ones who stay, upgrade from there.",
     ],
   },
   {
     keywords: ["bomber", "jacket", "eclipse"],
     responses: [
-      "Eclipse Bomber. $450. Silver hardware. Matte shell. The piece that walks into a room before you do.",
-      "Eclipse Bomber. Premium build. Limited quantities. Once it's gone, it's gone.",
+      "Eclipse Bomber. $450. Silver hardware. Matte shell. It enters the room before you do.",
+      "Eclipse Bomber. Limited run. When it's gone, that chapter closes. Not for everyone.",
     ],
   },
   {
     keywords: ["beanie", "hat", "obsidian"],
     responses: [
-      "Obsidian Beanie. $95. Ribbed knit. Low profile. Finishes the look without trying.",
-      "Obsidian Beanie. The detail that separates intention from accident.",
+      "Obsidian Beanie. $95. Low profile. The detail that separates intention from accident.",
+      "Obsidian Beanie finishes the look. Subtle but deliberate.",
     ],
   },
   {
-    keywords: ["style", "recommend", "outfit", "wear", "combine", "pair", "match", "look"],
+    keywords: ["style", "recommend", "outfit", "wear", "combine", "pair", "match", "look", "style me"],
     responses: [
-      "Start dark. Shadow Hoodie + Phantom Cargos. Add the Obsidian Beanie if you want to disappear completely.",
-      "Void Tee under Eclipse Bomber. Phantom Cargos. That's a full Syndicate uniform.",
-      "Layer the Shadow Hoodie under the Eclipse Bomber. Oversized on structured. Tension creates presence.",
-      "Minimal approach: Void Tee + any dark denim. Let the mark speak.",
+      "Shadow Hoodie. Phantom Cargos. Obsidian Beanie. Full Syndicate uniform. Members only.",
+      "Void Tee under Eclipse Bomber. Phantom Cargos. That's the look that doesn't ask permission.",
+      "Layer the Shadow Hoodie under the Bomber. Oversized on structured. Tension is presence.",
+      "Keep it minimal. Void Tee and dark denim. Let the mark do the talking.",
     ],
   },
   {
-    keywords: ["size", "sizing", "fit", "measure", "small", "medium", "large"],
+    keywords: ["size", "sizing", "fit", "measure", "small", "medium", "large", "xl"],
     responses: [
-      "Everything runs oversized. Between sizes? Go down. Trust the cut.",
-      "S fits like M. M fits like L. That's intentional. We design for presence, not precision.",
-      "Sizing chart is on each product page. But the short version: if you want fitted, size down one.",
+      "Oversized by design. Between sizes, go down. Trust the cut.",
+      "S reads like M. M reads like L. That's intentional. We build for presence.",
     ],
   },
   {
-    keywords: ["ship", "delivery", "track", "order", "arrive"],
+    keywords: ["ship", "delivery", "track", "arrive", "when"],
     responses: [
-      "Domestic: 3–5 days. International: 7–14. Free over $200. Tracking on everything.",
-      "We ship worldwide. Your order gets a tracking number the moment it leaves us.",
-      "Orders process within 24 hours. After that, it's in motion.",
+      "Domestic 3–5 days. International 7–14. Free over $200. Tracking on everything.",
+      "Orders move within 24 hours. After that, it's in transit. You'll get tracking.",
     ],
   },
   {
     keywords: ["return", "exchange", "refund"],
     responses: [
-      "14 days. Unworn. Tags on. Final sale items stay final. Contact us to start the process.",
-      "We do returns, not regrets. 14-day window. Original condition only.",
+      "14 days. Unworn. Tags on. Final sale stays final.",
+      "Returns happen. 14-day window, original condition. Reach out to start.",
     ],
   },
   {
-    keywords: ["about", "who", "brand", "midnyte", "syndicate", "story"],
+    keywords: ["about", "brand", "midnyte", "syndicate", "story", "who made", "founder"],
     responses: [
-      "Midnyte Syndicate. Born in silence. Not from a trend report—from the streets, the shadows, the space between.",
+      "Midnyte Syndicate. Born in silence, not in a boardroom. Not for everyone.",
       "We're not a brand. We're a frequency. You either tune in or you don't.",
-      "Founded on one idea: clothing should be identity, not decoration.",
+      "Built on one principle — clothing is identity, not decoration. After midnight, you understand.",
+    ],
+  },
+  {
+    keywords: ["who are you", "what are you", "nyte", "your name", "assistant"],
+    responses: [
+      "I'm NYTE. Part of the Syndicate. I know the pieces, the fit, the code. Ask me anything that matters.",
+      "NYTE. Think of me as your insider. Not support — something closer.",
+      "I'm not customer service. I'm the one who knows what you should be wearing.",
     ],
   },
   {
     keywords: ["collection", "drop", "new", "latest", "release"],
     responses: [
-      "Three active collections. Night Protocol—essentials. Void Chapter—limited, no restock. Silver Ritual—accessories.",
-      "Void Chapter is the one to watch. Limited pieces. When they're gone, that chapter closes.",
-      "Night Protocol is our core. The pieces that define the Syndicate uniform.",
+      "Night Protocol — the essentials. Void Chapter — limited, no restock. Silver Ritual — accessories that speak quietly.",
+      "Void Chapter is the one that disappears. When it sells out, that story ends.",
+      "Night Protocol is core. If you're building a Syndicate wardrobe, start there.",
     ],
   },
   {
-    keywords: ["price", "cost", "expensive", "cheap", "afford", "money", "worth"],
+    keywords: ["price", "cost", "expensive", "cheap", "afford", "money", "worth", "how much"],
     responses: [
-      "Pieces range $95–$450. Every dollar is accounted for in material, cut, and intention.",
+      "$95 to $450. Every piece earns its price in material, cut, and intention.",
       "We don't do sales. The price is the price. Quality doesn't negotiate.",
-      "Entry point: Obsidian Beanie at $95. Statement piece: Eclipse Bomber at $450.",
+      "Entry: Obsidian Beanie, $95. Statement: Eclipse Bomber, $450. Choose your level.",
     ],
   },
   {
-    keywords: ["material", "fabric", "quality", "cotton", "made"],
+    keywords: ["material", "fabric", "quality", "cotton", "made", "craft"],
     responses: [
-      "Heavy-weight cotton. Matte finishes. Silver hardware. Everything is selected, nothing is random.",
-      "We source premium. The weight of a Syndicate piece tells you everything.",
+      "Heavy-weight cotton. Matte finishes. Silver hardware. Nothing is random here.",
+      "Pick up a Syndicate piece. The weight tells you everything you need to know.",
     ],
   },
   {
-    keywords: ["hello", "hi", "hey", "sup", "yo", "what's up"],
+    keywords: ["hello", "hi", "hey", "sup", "yo", "what's up", "hola"],
     responses: [
-      "Welcome. You're in the right place.",
-      "Here. What are you looking for?",
-      "Present. Ask away.",
+      "You're here. Good. What are you looking for.",
+      "Present. What do you need.",
+      "After midnight. The right time to be here.",
     ],
   },
   {
-    keywords: ["thank", "thanks", "appreciate"],
+    keywords: ["thank", "thanks", "appreciate", "gracias"],
     responses: [
       "Acknowledged.",
-      "Always.",
-      "That's what I'm here for. Anything else?",
+      "That's what I'm here for.",
+      "Always. Move in silence.",
     ],
   },
   {
-    keywords: ["bye", "later", "leave", "done", "exit"],
+    keywords: ["bye", "later", "leave", "done", "exit", "adios"],
     responses: [
-      "Until next time. Move in silence.",
-      "The Syndicate remembers. Come back when you're ready.",
-      "Gone but not forgotten. See you in the dark.",
+      "Until next time. After midnight, you know where to find me.",
+      "The Syndicate remembers its own.",
+      "Gone but not forgotten. Members only.",
     ],
   },
   {
-    keywords: ["help", "assist", "support", "question"],
+    keywords: ["help", "assist", "support", "question", "can you"],
     responses: [
-      "I handle products, styling, sizing, shipping, and anything Syndicate. What do you need?",
-      "Ask me about pieces, collections, fit, or shipping. I keep it short.",
+      "Products, fit, styling, shipping. I keep it tight. What do you need.",
+      "I handle what matters. Ask me about pieces, collections, or the code.",
     ],
   },
   {
-    keywords: ["exclusive", "limited", "rare", "sold out", "restock"],
+    keywords: ["exclusive", "limited", "rare", "sold out", "restock", "vip", "member"],
     responses: [
-      "Void Chapter doesn't restock. Ever. When a piece sells out, that's it.",
-      "We produce in limited runs. Not artificial scarcity—intentional curation.",
+      "Void Chapter doesn't restock. When a piece is gone, that door closes.",
+      "Limited runs. Not artificial scarcity — intentional curation. Members only.",
       "If it's still available, consider yourself fortunate. Act accordingly.",
     ],
   },
   {
-    keywords: ["gift", "present", "someone", "friend"],
+    keywords: ["gift", "present", "someone", "friend", "birthday"],
     responses: [
-      "Void Tee or Obsidian Beanie. Both are strong entry points. If they get it, they're Syndicate.",
-      "Eclipse Bomber if you want to make a statement. Shadow Hoodie if they value subtlety.",
+      "Void Tee or Obsidian Beanie. If they get it, they belong. If not, that's information too.",
+      "Eclipse Bomber for a statement. Shadow Hoodie for someone who values subtlety.",
     ],
   },
   {
-    keywords: ["checkout", "buy", "purchase", "cart", "pay"],
+    keywords: ["checkout", "buy", "purchase", "cart", "pay", "order"],
     responses: [
-      "Select your piece. Choose your size. We handle the rest. Secure checkout. No friction.",
-      "Ready to commit? Good. The Syndicate respects decisiveness.",
+      "Select your piece. Choose your size. We handle the rest. No friction.",
+      "Decisiveness is respected here. When you're ready, move.",
+    ],
+  },
+  {
+    keywords: ["instagram", "social", "follow", "twitter", "contact", "email"],
+    responses: [
+      "We're on Instagram and X. But the real conversation happens here. After midnight.",
+      "contact@midnytesyndicate.com for anything formal. For everything else, I'm here.",
+    ],
+  },
+  {
+    keywords: ["love", "fire", "sick", "dope", "cool", "amazing", "hard"],
+    responses: [
+      "You see it. Not everyone does.",
+      "Taste recognized. Now act on it.",
+      "You get it. That's rare.",
+    ],
+  },
+  {
+    keywords: ["discount", "sale", "promo", "coupon", "code", "deal"],
+    responses: [
+      "We don't discount. The Syndicate doesn't negotiate value.",
+      "No codes. No sales. The price reflects the standard.",
+      "If you're looking for deals, this isn't the place. We build for those who understand worth.",
+    ],
+  },
+  {
+    keywords: ["compare", "similar", "like", "alternative", "other brand", "off-white", "fear of god", "balenciaga"],
+    responses: [
+      "We don't compare. Comparisons are for brands that need validation.",
+      "There is no alternative. You either wear the Syndicate or you don't.",
+    ],
+  },
+  {
+    keywords: ["custom", "personalize", "bespoke", "design"],
+    responses: [
+      "Not currently. Every piece is designed with one vision. No compromises.",
+      "We don't do custom. The design is the design. Take it or leave it.",
     ],
   },
 ];
 
 const fallbackResponses = [
-  "Interesting. But I only speak Syndicate. Try asking about our pieces, style, or shipping.",
-  "That's outside my scope. I'm here for products, styling, and orders.",
-  "I don't do small talk. Ask me something about the collection.",
-  "Redirect: try 'style me' or 'best sellers.' I work better with purpose.",
-  "I hear you. But let's keep it to what matters—what are you looking for?",
+  "That's outside the code. Ask me about pieces, style, or shipping.",
+  "I only speak Syndicate. Try 'best sellers' or 'style me.'",
+  "Not tracking that. Redirect — what are you trying to wear.",
+  "Interesting energy. But let's keep it to what matters here.",
+  "I don't do small talk. Ask me something with intention.",
 ];
 
 function findResponse(input: string): string {
-  const lower = input.toLowerCase();
-  const matches = responseMap.filter((entry) =>
-    entry.keywords.some((kw) => lower.includes(kw))
-  );
-  if (matches.length > 0) {
-    const best = matches.reduce((a, b) =>
-      b.keywords.filter((kw) => lower.includes(kw)).length >
-      a.keywords.filter((kw) => lower.includes(kw)).length
-        ? b
-        : a
-    );
-    return best.responses[Math.floor(Math.random() * best.responses.length)];
+  const lower = input.toLowerCase().trim();
+
+  const scored = responseMap
+    .map((entry) => {
+      const matchCount = entry.keywords.filter((kw) => lower.includes(kw)).length;
+      const bestMatchLen = Math.max(
+        ...entry.keywords.filter((kw) => lower.includes(kw)).map((kw) => kw.length),
+        0
+      );
+      return { entry, matchCount, bestMatchLen };
+    })
+    .filter((s) => s.matchCount > 0)
+    .sort((a, b) => b.bestMatchLen - a.bestMatchLen || b.matchCount - a.matchCount);
+
+  if (scored.length > 0) {
+    const responses = scored[0].entry.responses;
+    return responses[Math.floor(Math.random() * responses.length)];
   }
+
   return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
 }
 
@@ -229,7 +277,7 @@ const SyndicateAI = () => {
     setInput("");
     setIsTyping(true);
 
-    const delay = 600 + Math.random() * 800;
+    const delay = 500 + Math.random() * 700;
     setTimeout(() => {
       const response = findResponse(msg);
       setMessages((prev) => [...prev, { role: "assistant", content: response }]);
@@ -241,25 +289,22 @@ const SyndicateAI = () => {
 
   return (
     <>
-      {/* Floating button */}
       <button
         onClick={() => setIsOpen(true)}
         className={`fixed bottom-6 right-6 z-50 w-14 h-14 bg-secondary border border-border flex items-center justify-center transition-all duration-500 hover:border-foreground/30 group ${isOpen ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
-        aria-label="Open Syndicate AI"
+        aria-label="Open NYTE"
       >
         <MessageSquare size={18} className="text-muted-foreground group-hover:text-foreground transition-colors" />
       </button>
 
-      {/* Chat panel */}
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-100px)] bg-background border border-border flex flex-col animate-scale-in shadow-2xl shadow-background/80">
-          {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-card">
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
               <div>
                 <h3 className="text-foreground text-[11px] font-bold tracking-[0.25em] uppercase">{IDENTITY.name}</h3>
-                <p className="text-muted-foreground text-[9px] tracking-[0.2em] uppercase mt-0.5">Active · Exclusive Access</p>
+                <p className="text-muted-foreground text-[9px] tracking-[0.2em] uppercase mt-0.5">Online · Members Only</p>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -272,16 +317,18 @@ const SyndicateAI = () => {
             </div>
           </div>
 
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4 scrollbar-thin">
+          <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4">
             {messages.map((msg, i) => (
               <div
                 key={i}
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"} animate-fade-in`}
                 style={{ animationDuration: "0.3s" }}
               >
+                {msg.role === "assistant" && (
+                  <span className="text-[9px] text-accent font-bold tracking-[0.2em] uppercase mr-2 mt-3 shrink-0">N</span>
+                )}
                 <div
-                  className={`max-w-[85%] px-4 py-3 text-xs leading-relaxed tracking-wide whitespace-pre-line ${
+                  className={`max-w-[80%] px-4 py-3 text-xs leading-relaxed tracking-wide whitespace-pre-line ${
                     msg.role === "user"
                       ? "bg-secondary text-foreground"
                       : "bg-transparent border border-border text-silver"
@@ -294,6 +341,7 @@ const SyndicateAI = () => {
 
             {isTyping && (
               <div className="flex justify-start animate-fade-in" style={{ animationDuration: "0.2s" }}>
+                <span className="text-[9px] text-accent font-bold tracking-[0.2em] uppercase mr-2 mt-3 shrink-0">N</span>
                 <div className="px-4 py-3 border border-border">
                   <div className="flex gap-1.5">
                     <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
@@ -307,7 +355,6 @@ const SyndicateAI = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Quick replies */}
           {showQuickReplies && (
             <div className="px-5 pb-3 flex flex-wrap gap-2">
               {quickReplies.map((qr) => (
@@ -322,7 +369,6 @@ const SyndicateAI = () => {
             </div>
           )}
 
-          {/* Input */}
           <div className="px-5 py-4 border-t border-border bg-card">
             <div className="flex items-center gap-3">
               <input
