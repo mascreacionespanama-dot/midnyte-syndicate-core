@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import SyndicateAI from "@/components/SyndicateAI";
 import product1 from "@/assets/product-1.jpg";
 import product2 from "@/assets/product-2.jpg";
 import product3 from "@/assets/product-3.jpg";
@@ -14,7 +17,9 @@ const drop01Products = [
 ];
 
 const Drop01 = () => (
-  <main className="min-h-screen bg-background pt-20 lg:pt-24">
+  <>
+    <Navbar />
+    <main className="min-h-screen bg-background pt-20 lg:pt-24">
     <section className="px-6 py-16 lg:py-24">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 lg:mb-24">
@@ -57,6 +62,9 @@ const Drop01 = () => (
       </div>
     </section>
   </main>
+    <Footer />
+    <SyndicateAI />
+  </>
 );
 
 export default Drop01;
