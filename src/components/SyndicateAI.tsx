@@ -111,11 +111,30 @@ const responseMap: ResponseEntry[] = [
     ],
   },
   {
-    keywords: ["collection", "drop", "new", "latest", "release"],
+    keywords: ["collection", "collections"],
     responses: [
       "Night Protocol — the essentials. Void Chapter — limited, no restock. Silver Ritual — accessories that speak quietly.",
-      "Void Chapter is the one that disappears. When it sells out, that story ends.",
       "Night Protocol is core. If you're building a Syndicate wardrobe, start there.",
+      "Three collections. Each one serves a different kind of member.",
+    ],
+  },
+  {
+    keywords: ["drop", "drops", "new", "latest", "release", "restock", "when", "next drop"],
+    responses: [
+      "We don't restock. Each drop is temporary. Miss it, it's gone.",
+      "Drops appear. Drops disappear. That's the model. No announcements, no countdowns.",
+      "Once a drop closes, those pieces move to the Archive. Gone from circulation.",
+      "Future drops exist. But we don't reveal what's coming. That's not how this works.",
+      "Limited windows. No second chances. The Syndicate rewards the ones paying attention.",
+      "Every drop is a chapter. When it ends, the next one is already being written in silence.",
+    ],
+  },
+  {
+    keywords: ["archive", "old", "past", "previous", "sold out"],
+    responses: [
+      "The Archive holds what came before. View only. Those pieces had their moment.",
+      "Sold out means closed. The Archive remembers, but doesn't bring anything back.",
+      "Past drops live in the Archive. A record, not a store.",
     ],
   },
   {
