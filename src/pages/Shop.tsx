@@ -15,6 +15,7 @@ const allProducts = [
   { name: "Obsidian Beanie", price: "$95", image: product5, desc: "Low profile. Deliberate.", collection: "Silver Ritual" },
 ];
 
+const Shop = () => (
   <>
     <Navbar />
     <main className="min-h-screen bg-background pt-20 lg:pt-24">

@@ -29,6 +29,7 @@ const archivedDrops = [
   },
 ];
 
+const Archive = () => (
   <>
     <Navbar />
     <main className="min-h-screen bg-background pt-20 lg:pt-24">
