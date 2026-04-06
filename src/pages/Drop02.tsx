@@ -1,5 +1,11 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import SyndicateAI from "@/components/SyndicateAI";
+
 const Drop02 = () => (
-  <main className="min-h-screen bg-background pt-20 lg:pt-24">
+  <>
+    <Navbar />
+    <main className="min-h-screen bg-background pt-20 lg:pt-24">
     <section className="px-6 py-16 lg:py-24">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 lg:mb-24">
@@ -26,6 +32,9 @@ const Drop02 = () => (
       </div>
     </section>
   </main>
+    <Footer />
+    <SyndicateAI />
+  </>
 );
 
 export default Drop02;
