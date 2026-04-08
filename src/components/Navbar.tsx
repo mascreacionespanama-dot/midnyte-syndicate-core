@@ -72,6 +72,7 @@ const Navbar = () => {
 
             <Link to="/future-drops" className={navLinkClass}>Future Drops</Link>
             <Link to="/about" className={navLinkClass}>About</Link>
+            <CartDrawer />
           </div>
 
           <button
