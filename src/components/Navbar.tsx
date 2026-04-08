@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
+import CartDrawer from "@/components/CartDrawer";
 
 const dropsLinks = [
   { to: "/drops/01", label: "Drop 01", note: "Active" },
@@ -71,6 +72,7 @@ const Navbar = () => {
 
             <Link to="/future-drops" className={navLinkClass}>Future Drops</Link>
             <Link to="/about" className={navLinkClass}>About</Link>
+            <CartDrawer />
           </div>
 
           <button
